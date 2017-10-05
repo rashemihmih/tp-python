@@ -58,7 +58,7 @@ if max_name_width < 7:
     max_name_width = 7
 print('Место {:<{max_name_width}} Очки Победы Поражения Ничьи Забито Пропущено'
       .format('Команда', max_name_width=str(max_name_width)))
-teams.sort(key=lambda team: team.points)
+teams.sort(key=lambda team: team.points, reverse=True)
 for i in range(len(teams)):
     t = teams[i]
     print('{:<5} {:<{max_name_width}} {:<4} {:<6} {:<9} {:<5} {:<6} {}'
