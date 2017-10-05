@@ -65,12 +65,13 @@ for i in range(len(teams)):
           .format(i + 1, t.name, t.points, t.wins, t.loses, t.ties, t.goals_scored, t.goals_conceded,
                   max_name_width=str(max_name_width)))
 
+games_dict = {}
+for game in games:
+    games_dict[frozenset({game.team1, game.team2})] = game
+
 
 def game_info(team1, team2):
-    for game in games:
-        if (team1 == game.team1 and team2 == game.team2) or \
-                (team2 == game.team1 and team1 == game.team2):
-            game.print()
+    games_dict[frozenset({team1, team2})].print()
 
 
 # game_info('Black', 'White')
