@@ -64,10 +64,7 @@ for i in range(len(teams)):
     print('{:<5} {:<{max_name_width}} {:<4} {:<6} {:<9} {:<5} {:<6} {}'
           .format(i + 1, t.name, t.points, t.wins, t.loses, t.ties, t.goals_scored, t.goals_conceded,
                   max_name_width=str(max_name_width)))
-
-games_dict = {}
-for game in games:
-    games_dict[frozenset({game.team1, game.team2})] = game
+games_dict = {frozenset({game.team1, game.team2}): game for game in games}
 
 
 def game_info(team1, team2):
